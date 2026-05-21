@@ -1,0 +1,597 @@
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LDS TOKYO | Luxury Design Standard</title>
+    <!-- Tailwind CSS (for base utilities and layouts) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fonts: Luxury Serif & Elegant Japanese Serif (Absolutely Preserved) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Serif+JP:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom Fine-Tuning for Quiet Luxury Aesthetics - Absolutely Maintained & Enhanced */
+        body {
+            background-color: #060606;
+            color: #f5f5f5;
+            font-family: 'Noto Serif JP', serif;
+            letter-spacing: 0.08em;
+            overflow-x: hidden;
+        }
+        
+        .font-serif-en {
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 0.15em;
+        }
+
+        /* Subtle Gold Accents - Muted champagne gold */
+        .color-gold {
+            color: #d4af37;
+        }
+        .border-gold {
+            border-color: rgba(212, 175, 55, 0.25);
+        }
+        .bg-gold {
+            background-color: #d4af37;
+        }
+
+        /* Enhanced Dark Cinematic Overlays for "Quiet Luxury" depth */
+        .cinematic-overlay-top {
+            background: linear-gradient(180deg, 
+                rgba(0, 0, 0, 0.85) 0%, 
+                rgba(6, 6, 6, 0.75) 50%, 
+                rgba(6, 6, 6, 1) 100%);
+        }
+        
+        .cinematic-overlay-card {
+            background: linear-gradient(to top, 
+                rgba(6, 6, 6, 0.95) 0%, 
+                rgba(6, 6, 6, 0.4) 70%, 
+                rgba(6, 6, 6, 0.1) 100%);
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Fallback styling for cinematic image loaders */
+        .image-fallback {
+            background-color: #090909;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        /* Slow elegant fade-in on scroll */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 2s cubic-bezier(0.16, 1, 0.3, 1), transform 2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Absolute Spacing & Typography rules */
+        .tracking-ultra {
+            letter-spacing: 0.35em;
+        }
+        .tracking-medium {
+            letter-spacing: 0.18em;
+        }
+
+        /* Custom Form Input styling */
+        .luxury-input {
+            background-color: transparent;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.5s ease;
+        }
+        .luxury-input:focus {
+            outline: none;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.5);
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        /* Elegant button hover effect */
+        .gold-btn {
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            background: transparent;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .gold-btn:hover {
+            border-color: rgba(212, 175, 55, 0.8);
+            background: rgba(212, 175, 55, 0.03);
+            letter-spacing: 0.4em;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-neutral-800 selection:text-amber-100">
+
+    <!-- HEADER / NAVIGATION (Minimal & Elegant) -->
+    <header class="fixed top-0 left-0 w-full z-50 px-8 py-6 md:px-16 md:py-10 transition-all duration-700" id="main-header">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex flex-col">
+                <span class="font-serif-en text-xs uppercase tracking-ultra font-semibold text-white">LDS TOKYO</span>
+                <span class="text-[8px] uppercase tracking-wider text-stone-500 font-light mt-1">Luxury Design Standard</span>
+            </div>
+            <nav class="hidden md:flex space-x-16 text-[10px] uppercase tracking-ultra text-stone-400">
+                <a href="#concept" class="hover:text-white transition duration-500">Concept</a>
+                <a href="#fabric" class="hover:text-white transition duration-500">Fabric</a>
+                <a href="#flow" class="hover:text-white transition duration-500">Order Flow</a>
+                <a href="#reservation" class="hover:text-white transition duration-500">Reservation</a>
+            </nav>
+            <div>
+                <a href="#reservation" class="border border-stone-800 hover:border-amber-600/30 px-6 py-3 text-[9px] uppercase tracking-ultra text-stone-300 transition-all duration-500 bg-black/40 backdrop-blur-sm">
+                    Book Appointment
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative h-screen w-full flex flex-col justify-between overflow-hidden bg-black">
+        <div class="absolute inset-0 bg-cover bg-center image-fallback scale-105" style="background-image: url('https://lh3.googleusercontent.com/d/1wCeP6f9CkLkyt3pbkg6UYoRx-cv7ERvv');"></div>
+        <div class="absolute inset-0 cinematic-overlay-top"></div>
+        <div class="relative z-10 pt-36 px-8 md:px-24 max-w-xl">
+            <h2 class="font-serif-en text-lg md:text-xl text-white tracking-ultra leading-none font-semibold">LDS TOKYO</h2>
+            <p class="text-[10px] uppercase tracking-medium text-stone-500 mt-2 font-serif-en">Luxury Design Standard</p>
+            <div class="h-[1px] w-8 bg-amber-500/10 mt-5"></div>
+        </div>
+        <div class="relative z-10 text-center self-center px-4 my-auto select-none">
+            <h1 class="font-serif-en text-5xl md:text-8xl lg:text-9xl text-white font-bold tracking-ultra opacity-95 transition-all duration-1000 transform hover:scale-102">
+                LDS TOKYO
+            </h1>
+            <p class="text-stone-500 text-[10px] tracking-ultra uppercase mt-8 font-light">The Pinnacle of Tailored Mastery</p>
+        </div>
+        <div class="relative z-10 pb-20 px-8 md:px-24 w-full flex flex-col md:flex-row justify-between items-end gap-6">
+            <div class="max-w-md">
+                <p class="font-serif-en text-2xl md:text-3xl text-white tracking-medium italic font-light">Quiet Luxury.</p>
+                <p class="font-serif-en text-lg md:text-xl text-stone-400 tracking-medium mt-2">Tailored for You.</p>
+            </div>
+            <div class="flex items-center space-x-6 text-[9px] tracking-widest text-stone-600">
+                <span class="w-16 h-[1px] bg-stone-900"></span>
+                <span class="uppercase">Scroll to Immerse</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: THE MANIFESTO -->
+    <section id="concept" class="relative py-48 md:py-64 px-6 md:px-12 bg-stone-950 overflow-hidden">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-24 lg:gap-32 items-center">
+            <div class="lg:col-span-6 space-y-16 md:pr-16 fade-in-section">
+                <div>
+                    <span class="text-[9px] uppercase tracking-ultra text-stone-500 block mb-4 font-serif-en">The Philosophy</span>
+                    <h3 class="font-serif-en text-3xl md:text-4xl text-white leading-relaxed font-semibold">
+                        Quiet Luxury.<br>Tailored for You.
+                    </h3>
+                </div>
+                <div class="space-y-10 text-stone-400 font-light leading-loose text-sm md:text-base border-l border-stone-900 pl-8 md:pl-12">
+                    <p class="tracking-widest">ただスーツを仕立てるのではない。</p>
+                    <p class="tracking-widest leading-loose">
+                        その人の雰囲気、<br>
+                        価値観、<br>
+                        ライフスタイルまで含め、<br>
+                        “その人らしさ”を引き立てる一着を。
+                    </p>
+                    <p class="tracking-widest">
+                        控えめで上質な高級感。<br>
+                        それでも、圧倒的な存在感。
+                    </p>
+                    <p class="tracking-widest">
+                        派手ではなく、<br>
+                        記憶に残る。
+                    </p>
+                    <p class="font-serif-en text-stone-300 text-lg py-4 tracking-wider leading-relaxed">
+                        LDS TOKYOは、<br>
+                        ただのオーダースーツブランドではない。
+                    </p>
+                    <p class="tracking-widest">
+                        静かに惹きつけ、記憶に残り、<br>
+                        その人の存在感を引き立てる。
+                    </p>
+                    <p class="font-serif-en text-2xl text-white font-medium tracking-ultra pt-6">
+                        “Quiet Luxury”
+                    </p>
+                    <p class="text-[10px] text-stone-600 pt-6 border-t border-stone-900 tracking-widest">
+                        LDS TOKYOは、新しいラグジュアリーの基準を仕立てていく。
+                    </p>
+                </div>
+            </div>
+            <div class="lg:col-span-6 relative h-[650px] w-full rounded-sm overflow-hidden group fade-in-section bg-neutral-950">
+                <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-black/40 to-black/70 z-10 transition-all duration-1000 group-hover:via-black/20 group-hover:to-black/50"></div>
+                <div class="absolute inset-0 bg-cover bg-center image-fallback transform scale-100 group-hover:scale-103 transition-transform duration-[3s] filter brightness-[0.75]" style="background-image: url('https://lh3.googleusercontent.com/d/1_lxCH4VjSFJq_Iok8S82i6JqnO1l_wjN');"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-transparent z-20"></div>
+                <div class="absolute bottom-12 left-12 z-30">
+                    <p class="font-serif-en text-[10px] uppercase tracking-ultra text-white/80">LDS TOKYO / PRIVATE SALON</p>
+                    <p class="text-[9px] text-stone-500 tracking-wider mt-2">A Whispered Standard of Bespoke Perfection</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: BESPOKE ARCHIVE -->
+    <section class="py-32 md:py-48 bg-stone-950 border-t border-stone-900/40 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-center items-center">
+            <div class="relative h-[650px] w-full max-w-[480px] group overflow-hidden rounded-sm bg-neutral-950 shadow-[0_20px_50px_rgba(0,0,0,0.9)] fade-in-section">
+                <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-stone-950/80 group-hover:via-black/15 group-hover:to-stone-950/70 transition-all duration-[1.2s] z-10"></div>
+                <div class="absolute inset-0 bg-cover bg-center image-fallback transform scale-100 group-hover:scale-105 transition-transform duration-[4s] filter brightness-[0.6]" style="background-image: url('https://lh3.googleusercontent.com/d/17fbPMsN4b9FhqLH3lvRjwxeXLBxoQEwf');"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-transparent z-20"></div>
+                <div class="absolute bottom-12 left-12 right-12 z-30 text-center md:text-left">
+                    <span class="text-[9px] uppercase tracking-ultra text-stone-500 font-serif-en">BESPOKE ARCHIVE</span>
+                    <h4 class="font-serif-en text-lg text-white font-medium tracking-widest mt-2">The Silence of Dignity</h4>
+                    <p class="text-[9px] text-stone-500 tracking-wider mt-1 italic">Tailored to project absolute status without a single word.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: FABRICS -->
+    <section id="fabric" class="py-48 bg-stone-950 text-stone-100 border-t border-stone-900/60">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="mb-36 text-center md:text-left fade-in-section">
+                <span class="text-[9px] uppercase tracking-ultra text-stone-500 block mb-4 font-serif-en">THE ARCHIVE</span>
+                <h2 class="font-serif-en text-4xl md:text-5xl text-white font-semibold">Exquisite Fabrics</h2>
+                <p class="text-xs text-stone-500 tracking-widest mt-4 max-w-md leading-relaxed">世界最高峰のテキスタイルコレクション。映画のワンシーンを思わせる、静かなる品格。</p>
+            </div>
+            <div class="space-y-64">
+                
+                <!-- 1. Ermenegildo Zegna -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center fade-in-section">
+                    <div class="lg:col-span-7 flex justify-center w-full">
+                        <div class="relative h-[600px] w-full max-w-[450px] group overflow-hidden rounded-sm bg-neutral-950 shadow-2xl">
+                            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/35 to-stone-950/80 group-hover:via-black/20 group-hover:to-stone-950/70 transition-all duration-750 z-10"></div>
+                            <div class="absolute inset-0 bg-cover bg-center image-fallback transform scale-100 group-hover:scale-103 transition-transform duration-[3s] filter brightness-[0.6]" style="background-image: url('https://lh3.googleusercontent.com/d/1Srr4Q4OcnmFGmt5v8JjpVh5qYtdiwGq3');"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-transparent z-20"></div>
+                            <div class="absolute bottom-8 left-8 z-30 opacity-60">
+                                <span class="text-[10px] font-serif-en tracking-ultra">SCENE I</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5 space-y-8 lg:pl-6">
+                        <div class="flex items-center space-x-4">
+                            <span class="text-[10px] font-serif-en tracking-ultra text-stone-500">ITALY</span>
+                            <span class="w-12 h-[1px] bg-stone-900"></span>
+                        </div>
+                        <h3 class="font-serif-en text-3xl text-white font-semibold tracking-wide">Ermenegildo Zegna</h3>
+                        <p class="text-stone-400 text-sm md:text-base leading-loose font-light">世界最高峰クラスの生地ブランド。滑らかな艶感と圧倒的な軽さが特徴。卓越した色気と仕立ての美しさを約束します。</p>
+                        <div class="pt-2">
+                            <span class="text-[9px] uppercase tracking-ultra text-amber-100/40 border-b border-stone-900 pb-3 block w-max">Bespoke Collection</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Loro Piana -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center fade-in-section">
+                    <div class="lg:col-span-7 lg:order-2 relative h-[550px] w-full group overflow-hidden rounded-sm bg-neutral-950">
+                        <div class="absolute inset-0 bg-black/60 group-hover:bg-black/45 transition-all duration-750 z-10"></div>
+                        <div class="absolute inset-0 bg-cover bg-center image-fallback transform scale-100 group-hover:scale-103 transition-transform duration-[2s]" style="background-image: url('https://lh3.googleusercontent.com/d/13VSxygldtc7OzaB_KTwCCpvKzq1MKHTd');"></div>
+                        <div class="absolute inset-0 bg-gradient-to-l from-stone-950 via-transparent to-transparent z-20"></div>
+                        <div class="absolute bottom-8 right-8 z-30 opacity-60">
+                            <span class="text-[10px] font-serif-en tracking-ultra">SCENE II</span>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5 lg:order-1 space-y-8 lg:pr-6">
+                        <div class="flex items-center space-x-4">
+                            <span class="text-[10px] font-serif-en tracking-ultra text-stone-500">ITALY</span>
+                            <span class="w-12 h-[1px] bg-stone-900"></span>
+                        </div>
+                        <h3 class="font-serif-en text-3xl text-white font-semibold tracking-wide">Loro Piana</h3>
+                        <p class="text-stone-400 text-sm md:text-base leading-loose font-light">最高級カシミヤ・ウールで世界を牽引する名門。華美な装飾を排し、本物だけが宿す「静かなる最高峰」の肌触り。</p>
+                        <div class="pt-2">
+                            <span class="text-[9px] uppercase tracking-ultra text-amber-100/40 border-b border-stone-900 pb-3 block w-max">Bespoke Collection</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. DORMEUIL -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center fade-in-section">
+                    <div class="lg:col-span-7 relative h-[550px] w-full group overflow-hidden rounded-sm bg-neutral-950">
+                        <div class="absolute inset-0 bg-black/60 group-hover:bg-black/45 transition-all duration-750 z-10"></div>
+                        <div class="absolute inset-0 bg-cover bg-center image-fallback transform scale-100 group-hover:scale-103 transition-transform duration-[2s]" style="background-image: url('https://lh3.googleusercontent.com/d/1LYbYrZFIXpm9kTfepuZQe4yKKiW_Ixgi');"></div>
+                        <div class="absolute inset-0 bg-gradient-to-r from-stone-950 via-transparent to-transparent z-20"></div>
+                        <div class="absolute bottom-8 left-8 z-30 opacity-60">
+                            <span class="text-[10px] font-serif-en tracking-ultra">SCENE III</span>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5 space-y-8 lg:pl-6">
+                        <div class="flex items-center space-x-4">
+                            <span class="text-[10px] font-serif-en tracking-ultra text-stone-500">FRANCE</span>
+                            <span class="w-12 h-[1px] bg-stone-900"></span>
+                        </div>
+                        <h3 class="font-serif-en text-3xl text-white font-semibold tracking-wide">DORMEUIL</h3>
+                        <p class="text-stone-400 text-sm md:text-base leading-loose font-light">英国らしい硬質で重厚な伝統構造と、フランスならではの洗練された都会的色気を両立させる至極のテキスタイル。</p>
+                        <div class="pt-2">
+                            <span class="text-[9px] uppercase tracking-ultra text-amber-100/40 border-b border-stone-900 pb-3 block w-max">Bespoke Collection</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. SCABAL -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center fade-in-section">
+                    <div class="lg:col-span-7 lg:order-2 relative h-[550px] w-full group overflow-hidden rounded-sm bg-neutral-950">
+                        <div class="absolute inset-0 bg-black/65 group-hover:bg-black/50 transition-all duration-750 z-10"></div>
+                        <div class="absolute inset-0 bg-cover bg-center image-fallback transform scale-100 group-hover:scale-103 transition-transform duration-[2s]" style="background-image: url('https://drive.google.com/thumbnail?id=1FEfryfXm8UCAKYjIMVLVPM93p8gkbgV9&sz=w2000');"></div>
+                        <div class="absolute inset-0 bg-gradient-to-l from-stone-950 via-transparent to-transparent z-20"></div>
+                        <div class="absolute bottom-8 right-8 z-30 opacity-60">
+                            <span class="text-[10px] font-serif-en tracking-ultra">SCENE IV</span>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5 lg:order-1 space-y-8 lg:pr-6">
+                        <div class="flex items-center space-x-4">
+                            <span class="text-[10px] font-serif-en tracking-ultra text-stone-500">BELGIUM</span>
+                            <span class="w-12 h-[1px] bg-stone-900"></span>
+                        </div>
+                        <h3 class="font-serif-en text-3xl text-white font-semibold tracking-wide">SCABAL</h3>
+                        <p class="text-stone-400 text-sm md:text-base leading-loose font-light">世界中の名士、VIP、精度にこだわるエグゼクティブに愛され続けるSCABAL。その気高き重厚感は唯一無二です。</p>
+                        <div class="pt-2">
+                            <span class="text-[9px] uppercase tracking-ultra text-amber-100/40 border-b border-stone-900 pb-3 block w-max">Bespoke Collection</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grand Lookbook Grid for CANONICO, REDA, DRAGO -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-16 lg:gap-24 pt-32 border-t border-stone-900/80">
+                    
+                    <!-- 5. CANONICO -->
+                    <div class="space-y-6 fade-in-section">
+                        <div class="relative h-96 overflow-hidden rounded-sm group">
+                            <div class="absolute inset-0 bg-black/55 group-hover:bg-black/30 transition-all duration-700"></div>
+                            <div class="absolute inset-0 bg-cover bg-center image-fallback transform group-hover:scale-105 transition-transform duration-[2s]" style="background-image: url('https://drive.google.com/thumbnail?id=1HSlYnkW3FgyqzvFwXaamBMJLKBUFOX50&sz=w2000');"></div>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span class="text-[9px] uppercase tracking-widest text-stone-500 font-serif-en">ITALY</span>
+                            <span class="w-6 h-[1px] bg-stone-900"></span>
+                        </div>
+                        <h4 class="font-serif-en text-2xl text-white font-semibold tracking-wide">CANONICO</h4>
+                        <p class="text-stone-400 text-sm leading-relaxed font-light">圧倒的に滑らかで発色の美しい風合い。その洗練された佇まいは、どのような社交場でも揺るぎない品性を証明します。</p>
+                    </div>
+
+                    <!-- 6. REDA -->
+                    <div class="space-y-6 fade-in-section">
+                        <div class="relative h-96 overflow-hidden rounded-sm group">
+                            <div class="absolute inset-0 bg-black/55 group-hover:bg-black/30 transition-all duration-700"></div>
+                            <div class="absolute inset-0 bg-cover bg-center image-fallback transform group-hover:scale-105 transition-transform duration-[2s]" style="background-image: url('https://drive.google.com/thumbnail?id=1s7dE39fVJ7-hU2JC58HeXQOBWvWw_rbv&sz=w2000');"></div>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span class="text-[9px] uppercase tracking-widest text-stone-500 font-serif-en">ITALY</span>
+                            <span class="w-6 h-[1px] bg-stone-900"></span>
+                        </div>
+                        <h4 class="font-serif-en text-2xl text-white font-semibold tracking-wide">REDA</h4>
+                        <p class="text-stone-400 text-sm leading-relaxed font-light">最先端の生産様式と歴史的なサルトリア技法の結晶。エグゼクティブを支える耐久性と美しいドレープ性を誇ります。</p>
+                    </div>
+
+                    <!-- 7. DRAGO -->
+                    <div class="space-y-6 fade-in-section">
+                        <div class="relative h-96 overflow-hidden rounded-sm group">
+                            <div class="absolute inset-0 bg-black/55 group-hover:bg-black/30 transition-all duration-700"></div>
+                            <!-- [DRAGOセクション直前の差し替え済み画像] -->
+                            <div class="absolute inset-0 bg-cover bg-center image-fallback transform group-hover:scale-105 transition-transform duration-[2s]" style="background-image: url('https://drive.google.com/thumbnail?id=1rdd3ztM8yQ-tYdXZsZOe9UflZiDlOldh&sz=w2000');"></div>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span class="text-[9px] uppercase tracking-widest text-stone-500 font-serif-en">ITALY</span>
+                            <span class="w-6 h-[1px] bg-stone-900"></span>
+                        </div>
+                        <h4 class="font-serif-en text-2xl text-white font-semibold tracking-wide">DRAGO</h4>
+                        <p class="text-stone-400 text-sm leading-relaxed font-light">超極細糸を繊細に織り上げることで到達した、まるで絹のように軽やかで贅沢、かつ官能的な着心地。</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: ORDER FLOW -->
+    <section id="flow" class="py-48 md:py-64 bg-black relative">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-36 fade-in-section">
+                <span class="text-[9px] uppercase tracking-ultra text-stone-500 block mb-4 font-serif-en">THE BESPOKE EXPERIENCE</span>
+                <h2 class="font-serif-en text-4xl md:text-5xl text-white font-semibold">Order Flow</h2>
+                <p class="text-[9px] text-stone-600 tracking-widest mt-4">お仕立てのフロー</p>
+            </div>
+            <div class="relative border-l border-stone-900 ml-4 md:ml-16 pl-10 md:pl-20 space-y-36">
+                
+                <!-- 1. Hearing -->
+                <div class="relative fade-in-section">
+                    <div class="absolute -left-[54px] md:-left-[88px] top-0 flex items-center justify-center">
+                        <span class="font-serif-en text-3xl md:text-5xl text-stone-900 font-bold leading-none select-none">01</span>
+                    </div>
+                    <div class="absolute -left-[45px] md:-left-[105px] top-4 w-[9px] h-[9px] rounded-full bg-stone-950 border border-stone-700"></div>
+                    <div class="space-y-4">
+                        <span class="text-[9px] uppercase tracking-ultra text-stone-500 font-serif-en">STAGE I</span>
+                        <h3 class="font-serif-en text-2xl text-stone-200 font-semibold tracking-wide">Hearing</h3>
+                        <p class="text-stone-400 text-sm md:text-base font-light tracking-wide pt-1">ご要望・ライフスタイルをヒアリング</p>
+                    </div>
+                </div>
+
+                <!-- 2. Fitting -->
+                <div class="relative fade-in-section">
+                    <div class="absolute -left-[54px] md:-left-[88px] top-0 flex items-center justify-center">
+                        <span class="font-serif-en text-3xl md:text-5xl text-stone-900 font-bold leading-none select-none">02</span>
+                    </div>
+                    <div class="absolute -left-[45px] md:-left-[105px] top-4 w-[9px] h-[9px] rounded-full bg-stone-950 border border-stone-700"></div>
+                    <div class="space-y-4">
+                        <span class="text-[9px] uppercase tracking-ultra text-stone-500 font-serif-en">STAGE II</span>
+                        <h3 class="font-serif-en text-2xl text-stone-200 font-semibold tracking-wide">Fitting</h3>
+                        <p class="text-stone-400 text-sm md:text-base font-light tracking-wide pt-1">採寸・シルエット調整</p>
+                    </div>
+                </div>
+
+                <!-- 3. Fabric Selection -->
+                <div class="relative fade-in-section">
+                    <div class="absolute -left-[54px] md:-left-[88px] top-0 flex items-center justify-center">
+                        <span class="font-serif-en text-3xl md:text-5xl text-stone-900 font-bold leading-none select-none">03</span>
+                    </div>
+                    <div class="absolute -left-[45px] md:-left-[105px] top-4 w-[9px] h-[9px] rounded-full bg-stone-950 border border-stone-700"></div>
+                    <div class="space-y-4">
+                        <span class="text-[9px] uppercase tracking-ultra text-stone-500 font-serif-en">STAGE III</span>
+                        <h3 class="font-serif-en text-2xl text-stone-200 font-semibold tracking-wide">Fabric Selection</h3>
+                        <p class="text-stone-400 text-sm md:text-base font-light tracking-wide pt-1">生地選び</p>
+                    </div>
+                </div>
+
+                <!-- 4. Delivery -->
+                <div class="relative fade-in-section">
+                    <div class="absolute -left-[54px] md:-left-[88px] top-0 flex items-center justify-center">
+                        <span class="font-serif-en text-3xl md:text-5xl text-stone-900 font-bold leading-none select-none">04</span>
+                    </div>
+                    <div class="absolute -left-[45px] md:-left-[105px] top-4 w-[9px] h-[9px] rounded-full bg-stone-950 border border-stone-700"></div>
+                    <div class="space-y-4">
+                        <span class="text-[9px] uppercase tracking-ultra text-stone-500 font-serif-en">STAGE IV</span>
+                        <h3 class="font-serif-en text-2xl text-stone-200 font-semibold tracking-wide">Delivery</h3>
+                        <p class="text-stone-400 text-sm md:text-base font-light tracking-wide pt-1">納品</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: RESERVATION & CONTACT -->
+    <section id="reservation" class="py-48 bg-stone-950 border-t border-stone-900/40 relative">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-24 fade-in-section">
+                <span class="text-[9px] uppercase tracking-ultra text-stone-500 block mb-4 font-serif-en">PRIVATE SESSION</span>
+                <h2 class="font-serif-en text-4xl md:text-5xl text-white font-semibold">Reservation</h2>
+                <p class="text-[9px] text-stone-500 tracking-widest mt-4">完全予約制。極仕立てを体験する至高のプライベート空間。</p>
+            </div>
+            <div class="bg-black/45 backdrop-blur-md border border-stone-900/60 p-8 md:p-16 rounded-sm shadow-2xl fade-in-section max-w-3xl mx-auto">
+                <form id="luxuryForm" onsubmit="handleFormSubmit(event)" class="space-y-12">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        <div class="flex flex-col space-y-3">
+                            <label class="text-[9px] uppercase tracking-ultra text-stone-400 font-serif-en">Full Name / お名前</label>
+                            <input type="text" required class="luxury-input py-3 text-stone-200 text-sm font-light px-1" placeholder="例：青山 雅治">
+                        </div>
+                        <div class="flex flex-col space-y-3">
+                            <label class="text-[9px] uppercase tracking-ultra text-stone-400 font-serif-en">Email Address / メールアドレス</label>
+                            <input type="email" required class="luxury-input py-3 text-stone-200 text-sm font-light px-1" placeholder="例：masaharu.a@example.com">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        <div class="flex flex-col space-y-3">
+                            <label class="text-[9px] uppercase tracking-ultra text-stone-400 font-serif-en">Phone Number / 電話番号</label>
+                            <input type="tel" required class="luxury-input py-3 text-stone-200 text-sm font-light px-1" placeholder="例：090-XXXX-XXXX">
+                        </div>
+                        <div class="flex flex-col space-y-3">
+                            <label class="text-[9px] uppercase tracking-ultra text-stone-400 font-serif-en">Preferred Date & Time / 希望日時</label>
+                            <input type="datetime-local" required class="luxury-input py-3 text-stone-400 text-sm font-light px-1">
+                        </div>
+                    </div>
+                    <div class="flex flex-col space-y-3">
+                        <label class="text-[9px] uppercase tracking-ultra text-stone-400 font-serif-en">Requests & Remarks / ご要望・備考</label>
+                        <textarea rows="4" class="luxury-input py-3 text-stone-200 text-sm font-light px-1 resize-none" placeholder="仕立てのご要望、サロンスペースについてのご質問などがあればご記入ください。"></textarea>
+                    </div>
+                    <div class="text-center pt-8">
+                        <button type="submit" class="w-full md:w-auto px-20 py-5 gold-btn text-[10px] uppercase tracking-ultra text-amber-100 font-serif-en">
+                            Submit Appointment Request
+                        </button>
+                    </div>
+                </form>
+                <div id="formFeedback" class="hidden mt-8 p-8 bg-stone-950 border border-stone-900 text-center rounded-sm">
+                    <p class="font-serif-en text-lg text-amber-100/90 tracking-wider">Appointment Request Received</p>
+                    <p class="text-xs text-stone-400 mt-3 leading-relaxed">
+                        LDS TOKYOへご予約希望をいただきありがとうございます。<br>
+                        コンシェルジュより、ご指定 of 連絡先へ24時間以内にご連絡申し上げます。
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-32 border-t border-stone-900/60 pt-24 text-center space-y-16 fade-in-section max-w-2xl mx-auto">
+                <div class="space-y-4">
+                    <span class="text-[9px] uppercase tracking-ultra text-stone-500 font-serif-en">DIRECT RESERVATION</span>
+                    <h3 class="font-serif-en text-xl text-stone-300">Instagram DM予約はこちら</h3>
+                    <p class="text-xs text-stone-500 leading-relaxed max-w-md mx-auto">
+                        お電話やメールではなく、DMでのスマートなやり取りをご希望のお客様は、以下よりご連絡ください。
+                    </p>
+                </div>
+                <a href="https://instagram.com" target="_blank" rel="noopener" class="inline-flex items-center space-x-3 gold-btn px-10 py-5 rounded-sm text-[10px] uppercase tracking-ultra text-amber-100">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                    </svg>
+                    <span>Send Message on Instagram</span>
+                </a>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-16 text-stone-400 text-xs">
+                    <div class="space-y-2 p-8 border border-stone-900/40 bg-black/20 rounded-sm">
+                        <p class="font-serif-en text-base text-white font-medium tracking-widest">Aoyama Salon</p>
+                        <p class="text-[9px] text-stone-600 tracking-widest">TOKYO</p>
+                        <p class="text-stone-500 pt-2 leading-relaxed">
+                            東京都青山<br>
+                            <span class="text-[10px] text-stone-600 block mt-1">※詳細なサロン住所は予約確定後にお伝えします</span>
+                        </p>
+                    </div>
+                    <div class="space-y-2 p-8 border border-stone-900/40 bg-black/20 rounded-sm">
+                        <p class="font-serif-en text-base text-white font-medium tracking-widest">Hakata Salon</p>
+                        <p class="text-[9px] text-stone-600 tracking-widest">FUKUOKA</p>
+                        <p class="text-stone-500 pt-2 leading-relaxed">
+                            福岡県博多<br>
+                            <span class="text-[10px] text-stone-600 block mt-1">※詳細なサロン住所は予約確定後にお伝えします</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-20 bg-black text-stone-600 text-[10px] uppercase tracking-ultra border-t border-stone-950">
+        <div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex flex-col items-center md:items-start space-y-1">
+                <span class="font-serif-en text-white tracking-widest text-xs">LDS TOKYO</span>
+                <span class="text-[8px] text-stone-600 tracking-wider">Luxury Design Standard</span>
+            </div>
+            <p class="text-center md:text-right text-[9px] text-stone-600 font-serif-en">
+                &copy; <span id="current-year">2026</span> LDS TOKYO. All Rights Reserved. "Quiet Luxury" Tailoring.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const form = document.getElementById('luxuryForm');
+            const feedback = document.getElementById('formFeedback');
+            form.style.opacity = '0';
+            setTimeout(() => {
+                form.classList.add('hidden');
+                feedback.classList.remove('hidden');
+                feedback.style.opacity = '0';
+                setTimeout(() => {
+                    feedback.style.opacity = '1';
+                    feedback.style.transition = 'opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1)';
+                }, 50);
+            }, 400);
+        }
+
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 80) {
+                header.classList.add('bg-black/90', 'backdrop-blur-md', 'py-4', 'border-b', 'border-stone-900/60');
+                header.classList.remove('py-6', 'md:py-10');
+            } else {
+                header.classList.remove('bg-black/90', 'backdrop-blur-md', 'py-4', 'border-b', 'border-stone-900/60');
+                header.classList.add('py-6', 'md:py-10');
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.08 };
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            document.querySelectorAll('.fade-in-section').forEach(section => observer.observe(section));
+        });
+    </script>
+</body>
+</html>
+
+```
